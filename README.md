@@ -20,10 +20,18 @@ Start the program. All dependencies will be automatically downloaded
 
 `npm start`
 
-Then visit http://localhost:8000 in your browser of choice. You might get an error message:
+Then visit http://127.0.0.1:8000 in your browser of choice. You might get an error message:
 
-`geth --rpc --rpccorsdomain "http://localhost:8000"`
+`geth --rpc --rpccorsdomain "http://127.0.0.1:8000"`
 
 Install [geth](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum "Geth install") if you don't already have it, then run the above command.
 
 Then refresh the page in your browser 
+
+# Fix cors error
+
+`npm install -g local-cors-proxy`
+
+Add cors header
+
+`/usr/local/Cellar/node/12.10.0/bin/lcp --port 8001 --origin http://127.0.0.1:8000 --proxyUrl http://127.0.0.1:8545 --proxyPartial '' --credentials`
